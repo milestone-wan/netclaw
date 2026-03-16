@@ -12,6 +12,19 @@ Devices are defined in `testbed/testbed.yaml`. Update that file with your SSH-ac
 - R2 → 10.1.1.2, Distribution Router, IOS-XE 17.9
 - SW1 → 10.1.2.1, Access Switch, IOS-XE 17.9
 - SW2 → 10.1.2.2, Access Switch, IOS-XE 17.9
+
+### Huawei VRP Devices
+- HUAWEI-Core-01 → 10.1.10.1, Core Router, VRP V8.xxx
+- HUAWEI-Dist-01 → 10.1.10.2, Distribution Router, VRP V8.xxx
+- HUAWEI-Access-01 → 10.1.10.3, Access Switch, VRP V5.xxx
+
+### H3C Comware Devices
+- H3C-Core-01 → 10.1.11.1, Core Router, Comware V7.xxx
+- H3C-Dist-01 → 10.1.11.2, Distribution Router, Comware V7.xxx
+
+### Fortinet FortiGate Devices
+- FGT-01 → 10.1.12.1, Next-Gen Firewall, FortiOS 7.x
+- FGT-02 → 10.1.12.2, Next-Gen Firewall, FortiOS 7.x
 ```
 
 ## Platform Credentials
@@ -29,6 +42,7 @@ All credentials are in `~/.openclaw/.env`. Never put credentials in skill files 
 - F5 BIG-IP           → F5_IP_ADDRESS, F5_AUTH_STRING
 - Catalyst Center     → CCC_HOST, CCC_USER, CCC_PWD
 - Microsoft Graph     → AZURE_TENANT_ID, AZURE_CLIENT_ID, AZURE_CLIENT_SECRET
+- FortiManager        → FORTIMANAGER_HOST, FORTIMANAGER_API_TOKEN, FORTIMANAGER_MCP_CMD
 ```
 
 ## Slack Integration

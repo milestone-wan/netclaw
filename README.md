@@ -4,7 +4,7 @@
 
 # NetClaw
 
-A CCIE-level AI network engineering coworker. Built on [OpenClaw](https://github.com/openclaw/openclaw) with Anthropic Claude, 92 skills, and 43 MCP integrations for complete network automation with ITSM gating, source-of-truth reconciliation, immutable audit trails, packet capture analysis, GitHub config-as-code, Cisco CML lab simulation, ContainerLab containerized network labs, Cisco NSO orchestration, Cisco SD-WAN vManage monitoring, Grafana observability (dashboards, Prometheus, Loki, alerting, incidents), Prometheus direct PromQL monitoring, Kubeshark Kubernetes traffic analysis, Cisco Meraki Dashboard management, Cisco ThousandEyes network intelligence, AWS cloud networking, Cisco Secure Firewall policy auditing, Itential network orchestration, Juniper JunOS device automation, Arista CloudVision Portal monitoring, F5 BIG-IP pyATS iControl REST coverage, Infoblox DDI, Palo Alto Panorama, FortiManager, UML diagram generation, EVPN/VXLAN fabric workflows, live BGP/OSPF control-plane participation, nmap network scanning, gtrace path analysis and IP enrichment, Slack-native operations, and Microsoft 365 integration.
+A CCIE-level AI network engineering coworker. Built on [OpenClaw](https://github.com/openclaw/openclaw) with Anthropic Claude, 99 skills, and 43 MCP integrations for complete network automation with ITSM gating, source-of-truth reconciliation, immutable audit trails, packet capture analysis, GitHub config-as-code, Cisco CML lab simulation, ContainerLab containerized network labs, Cisco NSO orchestration, Cisco SD-WAN vManage monitoring, Grafana observability (dashboards, Prometheus, Loki, alerting, incidents), Prometheus direct PromQL monitoring, Kubeshark Kubernetes traffic analysis, Cisco Meraki Dashboard management, Cisco ThousandEyes network intelligence, AWS cloud networking, Cisco Secure Firewall policy auditing, Itential network orchestration, Juniper JunOS device automation, Arista CloudVision Portal monitoring, F5 BIG-IP pyATS iControl REST coverage, Infoblox DDI, Palo Alto Panorama, FortiManager, UML diagram generation, EVPN/VXLAN fabric workflows, live BGP/OSPF control-plane participation, nmap network scanning, gtrace path analysis and IP enrichment, Slack-native operations, and Microsoft 365 integration.
 
 ---
 
@@ -16,7 +16,7 @@ cd netclaw
 ./scripts/install.sh          # installs everything, then launches the setup wizard
 ```
 
-That's it. The installer deploys 92 skills, installs bundled MCP dependencies, and prepares configuration for 43 MCP integrations, then launches a two-phase setup:
+That's it. The installer deploys 99 skills, installs bundled MCP dependencies, and prepares configuration for 43 MCP integrations, then launches a two-phase setup:
 
 **Phase 1: `openclaw onboard`** (OpenClaw's built-in wizard)
 - Pick your AI provider (Anthropic, OpenAI, Bedrock, Vertex, 30+ options)
@@ -48,7 +48,7 @@ Reconfigure anytime:
   <img src="ui/netclaw-visual/logos/netclawvisualhud.png" alt="NetClaw Visual HUD — 3D Network Operations Dashboard" width="800">
 </p>
 
-NetClaw includes a Three.js 3D operations dashboard that visualizes all 43 integrations, 92 skills, your device fleet, and live BGP peering topology. Chat with NetClaw directly from the browser, watch integrations light up as tools execute, and inspect every node in the graph.
+NetClaw includes a Three.js 3D operations dashboard that visualizes all 43 integrations, 99 skills, your device fleet, and live BGP peering topology. Chat with NetClaw directly from the browser, watch integrations light up as tools execute, and inspect every node in the graph.
 
 ```bash
 cd ui/netclaw-visual
@@ -314,6 +314,28 @@ All MCP servers communicate via stdio (JSON-RPC 2.0) through `scripts/mcp-call.p
 | **pyats-junos-system** | [pyATS MCP](https://github.com/automateyournetwork/pyats_mcp) (stdio) | JunOS chassis health, hardware inventory, version, NTP, SNMP, files/logs, firewall counters, DDoS, services accounting |
 | **pyats-junos-interfaces** | [pyATS MCP](https://github.com/automateyournetwork/pyats_mcp) (stdio) | JunOS interfaces (terse/extensive/optics), LACP, CoS, LLDP, ARP, IPv6 NDP, BFD sessions, traffic monitoring |
 | **pyats-junos-routing** | [pyATS MCP](https://github.com/automateyournetwork/pyats_mcp) (stdio) | JunOS OSPF/v3, BGP, route table (by protocol/table/instance), MPLS/LDP/RSVP, TED, PFE, ping, traceroute |
+
+### pyATS Huawei VRP Skills (3)
+
+| Skill | MCP Server | Description |
+|-------|------------|-------------|
+| **huawei-vrp-system** | [pyATS MCP](https://github.com/automateyournetwork/pyats_mcp) (stdio) | Huawei VRP system health, hardware status, version info, NTP, SNMP, logs, environment monitoring |
+| **huawei-vrp-interfaces** | [pyATS MCP](https://github.com/automateyournetwork/pyats_mcp) (stdio) | Huawei VRP interfaces, traffic statistics, error counters, Eth-Trunk, LLDP neighbors, optic diagnostics |
+| **huawei-vrp-routing** | [pyATS MCP](https://github.com/automateyournetwork/pyats_mcp) (stdio) | Huawei VRP OSPF, BGP, IS-IS routing protocols, route tables, MPLS/LDP/RSVP, connectivity tests |
+
+### pyATS H3C Comware Skills (3)
+
+| Skill | MCP Server | Description |
+|-------|------------|-------------|
+| **h3c-comware-system** | [pyATS MCP](https://github.com/automateyournetwork/pyats_mcp) (stdio) | H3C Comware system health, hardware status, version info, NTP, SNMP, logs, environment monitoring |
+| **h3c-comware-interfaces** | [pyATS MCP](https://github.com/automateyournetwork/pyats_mcp) (stdio) | H3C Comware interfaces, traffic statistics, error counters, Eth-Trunk, LLDP neighbors, optic diagnostics |
+| **h3c-comware-routing** | [pyATS MCP](https://github.com/automateyournetwork/pyats_mcp) (stdio) | H3C Comware OSPF, BGP, IS-IS routing protocols, route tables, MPLS/LDP/RSVP, connectivity tests |
+
+### FortiGate Firewall Skills (1)
+
+| Skill | MCP Server | Description |
+|-------|------------|-------------|
+| **fortigate-firewall-ops** | [pyATS MCP](https://github.com/automateyournetwork/pyats_mcp) (stdio) | FortiGate firewall policy, address objects, services, NAT, logs, session monitoring, IPS/AV configuration |
 
 ### pyATS ASA Firewall Skills (1)
 
@@ -1421,9 +1443,9 @@ netclaw/
 ├── TOOLS.md                              # Local infrastructure notes (edit this)
 ├── HEARTBEAT.md                          # Periodic health check checklist
 ├── MISSION01.md                          # Completed — core pyATS + 11 skills
-├── MISSION02.md                          # Completed — full platform, 78 skills, 32 MCP
+├── MISSION02.md                          # Completed — full platform, 85 skills, 32 MCP
 ├── workspace/
-│   └── skills/                           # 82 skill definitions (source of truth)
+│   └── skills/                           # 99 skill definitions (source of truth)
 │       ├── pyats-network/                # Core device automation (8 MCP tools)
 │       ├── pyats-health-check/           # Health + NetBox cross-ref + pCall
 │       ├── pyats-routing/                # OSPF, BGP, EIGRP, IS-IS analysis
@@ -1619,9 +1641,9 @@ netclaw/
 40. **Configures Kubeshark MCP** — Checks for `kubectl`; Kubeshark MCP is a remote HTTP endpoint running inside a Kubernetes cluster (6 tools: traffic capture, pcap export, snapshots, KFL filtering, L4 flow stats, TLS decryption). Requires Kubeshark deployed via Helm with `mcp.enabled=true`.
 41. **Installs Protocol MCP** — `pip3 install -r requirements.txt` (scapy, networkx, mcp, fastmcp) for live BGP/OSPF/GRE control-plane participation (10 tools: peer with routers, inject/withdraw routes, query RIB/LSDB, adjust metrics). Protocol speakers from WontYouBeMyNeighbour.
 42. **Protocol Peering Wizard** — Optional interactive configuration: router ID, local AS, BGP peer IP/AS, OSPF areas, GRE tunnels, lab mode. Writes protocol environment variables to `~/.openclaw/.env`. Optionally creates GRE tunnel (requires sudo).
-43. **Deploys skills + workspace files** — Copies 82 skills and 6 MD files to `~/.openclaw/workspace/`
+43. **Deploys skills + workspace files** — Copies 99 skills and 6 MD files to `~/.openclaw/workspace/`
 44. **Verifies installation** — Checks all MCP server scripts + core scripts exist
-45. **Prints summary** — Lists all 37 MCP servers by category and all 82 skills by domain
+45. **Prints summary** — Lists all 37 MCP servers by category and all 99 skills by domain
 
 ---
 
@@ -1991,4 +2013,4 @@ See `examples/` for detailed workflow walkthroughs.
 | Mission | Status | Summary |
 |---|---|---|
 | MISSION01 | Complete | Core pyATS agent, 7 skills, Markmap, Draw.io, RFC, NVD CVE, SOUL v1 |
-| MISSION02 | Complete | Full platform — 37 MCP servers, 82 skills (18 pyATS, 9 domain, 3 F5, 3 CatC, 3 M365, 1 GitHub, 1 packet analysis, 5 CML, 1 ContainerLab, 2 NSO, 1 Itential, 1 FMC, 1 SD-WAN, 1 Grafana, 1 Prometheus, 1 Kubeshark, 1 RADKit, 5 Meraki, 2 ThousandEyes, 5 AWS, 3 GCP, 1 JunOS, 1 Arista CVP, 1 UML, 1 protocol participation, 6 utility, 4 Slack), 6 workspace files, SOUL v2 |
+| MISSION02 | Complete | Full platform — 37 MCP servers, 89 skills (21 pyATS, 9 domain, 3 F5, 3 CatC, 3 M365, 1 GitHub, 1 packet analysis, 5 CML, 1 ContainerLab, 2 NSO, 1 Itential, 2 FMC, 1 SD-WAN, 1 Grafana, 1 Prometheus, 1 Kubeshark, 1 RADKit, 5 Meraki, 2 ThousandEyes, 5 AWS, 3 GCP, 1 JunOS, 3 Huawei, 3 H3C, 1 FortiGate, 1 Arista CVP, 1 UML, 1 protocol participation, 6 utility, 4 Slack), 6 workspace files, SOUL v2 |
